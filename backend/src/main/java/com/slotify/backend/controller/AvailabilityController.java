@@ -1,7 +1,9 @@
 package com.slotify.backend.controller;
 
 import com.slotify.backend.dto.AvailabilityRequest;
+import com.slotify.backend.dto.BlockedDateRequest;
 import com.slotify.backend.entity.Availability;
+import com.slotify.backend.entity.BlockedDates;
 import com.slotify.backend.service.AvailabilityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,11 @@ public class AvailabilityController {
     @GetMapping("/availability/provider/{providerId}")
     public ResponseEntity<List<Availability>> getAvailabilityByProvider(@PathVariable UUID providerId) {
         return ResponseEntity.ok(availabilityService.getAvailability(providerId));
+    }
+
+    @PostMapping("/availability/block")
+    public ResponseEntity<BlockedDates> blockDate(@RequestBody BlockedDateRequest request) {
+        return ResponseEntity.ok(availabilityService.blockDates(request));
     }
 }
 

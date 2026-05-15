@@ -11,4 +11,5 @@ public interface ProviderProfileRepository extends JpaRepository<ProviderProfile
 
     Optional<ProviderProfile> findByUser(Profile user);
     Optional<ProviderProfile> findById(UUID id);
+
 }

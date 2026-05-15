@@ -50,6 +50,8 @@ public class SecurityConfig {
                         // Customer and Provider both can access bookings
                         .requestMatchers("/api/bookings/**").hasAnyAuthority("ROLE_CUSTOMER", "ROLE_PROVIDER")
 
+                        .requestMatchers("/api/slots/**").hasAnyAuthority("ROLE_CUSTOMER", "ROLE_PROVIDER")
+
                         // Admin only
                         .requestMatchers("/api/admin/**").hasAuthority("ROLE_ADMIN")
 
